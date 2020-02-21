@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<!-- My Web Page -->
+    <head>
+        <title>William Martin's homepage</title>
+        <!-- Link to CSS -->
+        <link rel="stylesheet" type="text/css" href="styles/styles.css"/>
+        <link rel="icon" type="image/ico" href="images/coffee.ico"/>
+    </head>
+    <!-- Background image for site -->
+    <body>
+        <h2 class="dark"><strong>Welcome to William Martin's homepage!</strong></h2>
+        <button onclick="font_changer()">Click here to change fonts</button>
+        <p id="date"></p>
+        <button onclick="date_time_update()">Show/Update date & time</button>
+        <script>
+            function time_today(){
+                var today = new Date();
+                var hour_num = Number(today.getHours());
+                if (hour_num > 12){
+                    return(hour_num - 12 + ":" + today.getMinutes() + ":" + today.getSeconds() + "PM");
+                }
+                else {
+                    return(today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "AM");
+                }
+            }
+            
+            function date_today(){
+                var today = new Date();
+                return("The date/time is " + Number(today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear());
+            }
+
+            var counter = 0
+
+            function font_changer(){
+                var font_change = document.getElementsByTagName("body");
+                var fonts = ["sans-serif", "cursive", "fantasy", "inherit", "serif"]
+                for (i = 0; i < font_change.length; i++) {
+                    if (counter == 4){
+                        font_change[i].style.fontFamily = "monospace";
+                        counter = 0;
+                    }
+                    else {
+                        font_change[i].style.fontFamily = fonts[counter]
+                        counter++;
+                    }
+                }
+            }
+            
+            function date_time_update(){
+                document.getElementById("date").innerHTML = date_today() + " " + time_today();
+            }
+            
+            function make_text_invisible(){
+                var paras = document.getElementsByClassName("invisible");
+                for(var i = 0; i <= paras.length; i++) {
+                    paras[i].style.opacity = 0;
+                }
+            }
+
+            document.querySelector(".dark").style.backgroundColor = "white";
+        </script>
+        <!-- Identification info -->
+        <p class="invisible">
+            Software engineering student at <span id="stevens">Stevens Institute of Technology</span>
+            and Engineering Aide in <a href="https://www.coned.com/es" rel="noopener noreferrer" target="_blank">Con Edison Energy Services Department</a>
+        </p>
+        <p class="invisible">
+            Most of my skills are within the domains of data analysis and DevOps,
+            which are  primarily what I do at Con Edison. 
+        </p>
+        <button onclick="make_text_invisible()">Click here to make my boring bio disappear</button>
+        <hr>
+        <!-- Bio-related things -->
+        <p>
+            <a href="files/william_martin.pdf" download>Download my résumé</a>
+            <hr>
+            <h3>Some links</h3>
+            <ul class="dark">
+                <li><a href="https://www.linkedin.com/in/william-martin-295154166/" rel="noopener noreferrer" target="_blank">My LinkedIn</a></li>
+                <li><a href="https://github.com/williamjamesmartin" rel="noopener noreferrer" target="_blank">My GitHub</a>, although I don't have much there</li>
+                <li>My Email: <a href="mailto:wmartin@stevens.edu">wmartin@stevens.edu</a></li>
+            </ul>
+            <table class="dark" align="center">
+                <tr>
+                    <td><strong>Selected Books</strong></td>
+                    <td><strong> Selected Films/TV</strong></td>
+                </tr>
+                <tr>
+                    <td> War and Peace by Leo Tolstoy </td> <td> Twin Peaks </td>
+                </tr>
+                <tr>
+                    <td> Serotonin by Michel Houellebecq </td> <td> Cache (Film)</td>
+                </tr>
+                <tr>
+                    <td> Blood Meridian by Cormac McCarthy </td> <td> The House That Jack Built </td>
+                </tr>
+            </table>
+        </p>
+        <p>
+            Euler's identity (a very beautiful math equation):
+            <!-- Using math tags from html5 to include equations-->
+            <math>
+                <mrow>
+                <mrow>
+                    <msup>
+                    <mi>e</mi>
+                    <mn>πi</mn>
+                    </msup>
+                    <mo>+</mo>
+                    <msup>
+                    <mi>1</mi>
+                    <mn></mn>
+                    </msup>
+                </mrow>
+                <mo>=</mo>
+                <msup>
+                    <mi>0</mi>
+                    <mn></mn>
+                </msup>
+                </mrow>
+            </math>
+        </p>
+        <!-- Inclusion of a painting I like-->
+        <p>
+            <a href = "https://www.edwardhopper.net/" rel="noopener noreferrer" target="_blank">
+                <img src="images/house.jpg"></img>
+            </a>
+        </p>
+        <p>
+            <small class="dark">
+                My Favorite Painting: <em>House by the Railroad</em> 
+                - Edward Hopper
+            </small>
+        </p>
+    </body>
+</html>
