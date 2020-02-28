@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        body {
+            background-color: beige;
+        }
+
+        .column {
+          float: left;
+          width: 33.33%;
+          padding: 5px;
+        }
+
+        .row::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+        </style>
+        </head>
+        <body>
+        <div class="row">
+          <div class="column">
+            <img src="images/study.jpg" style="width:100%">
+          </div>
+          <div class="column">
+            <img src="images/seine_seurat.jpg" style="width:100%">
+          </div>
+          <div class="column">
+            <img src="images/monet.jpg" style="width:100%">
+          </div>
+        </div>
+        <a href="index.html">Back to main page</a>
+    </body>
+</html>
